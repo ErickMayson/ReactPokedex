@@ -19,6 +19,7 @@ export default class PokemonCard extends Component {
   }
   componentDidMount() {
     const {name, url} = this.props;
+    // This gets the Index/Id from the URL
     const pokemonIndex = url.split("/")[url.split('/').length - 2]
     const imageUrl = `https://github.com/PokeAPI/sprites/blob/master/sprites/pokemon/${pokemonIndex}.png?raw=true`
 
@@ -38,6 +39,7 @@ export default class PokemonCard extends Component {
         <div className="card">
 
             <h5 className='card header'>{this.state.pokemonIndex}</h5>
+            {/* Code below does the spinner animation if imageLoading is true */}
             {this.state.imageLoading ? (
               <img src={spinner} style={{width:"5em", height: "5em"}} className='card-img-top rounded mx-auto d-block mt-2' alt="" ></img>
             ) : null}
@@ -45,11 +47,13 @@ export default class PokemonCard extends Component {
             src={this.state.imageUrl}
             onLoad={() => this.setState({ imageLoading: false})}
             onError={() => this.setState({ toManyRequests: true})}
+            //  Style below handles the logic for showing the image or the spinner gif
             style={
               this.state.toManyRequests ? {display: "none"} :
               this.state.imageLoading ? null : {display: "block"} 
             }
             />
+            {/* Notifies too many requests. (Maybe this won't be useful anymore when I add Pagination.) */}
             {this.state.toManyRequests ? (<h6 className='mx-auto'>
               <span className="badge badge-danger mt-2">To many Requests</span>
               </h6>)
@@ -57,6 +61,7 @@ export default class PokemonCard extends Component {
 
             <div className="card-body mx-auto">
               <h6 className='card-title'>
+                {/* This thing under here handles the formatting of the Pokemon string name. */}
                 {this.state.name
                 .toLowerCase()
                 .split(" ")
