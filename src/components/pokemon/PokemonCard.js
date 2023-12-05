@@ -3,10 +3,17 @@ import React, { Component } from 'react';
 import styled from 'styled-components';
 import spinner from './Gear.gif';
 
+const Container = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; /* Set the height of the container to 100% of the viewport height */
+`;
+
 const Sprite = styled.img`
   width: 5em;
   height: 5em;
-  display:none;
+  display: none;
 `;
 
 export default class PokemonCard extends Component {
@@ -35,6 +42,7 @@ export default class PokemonCard extends Component {
   
 
     return (
+    <Container>
       <div className="col-md-3 col-sm-6 mb-5">
         <div className="card">
 
@@ -72,6 +80,7 @@ export default class PokemonCard extends Component {
             </div>
         </div>
       </div>
+    </Container>
     );
   }
 }

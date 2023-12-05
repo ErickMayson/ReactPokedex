@@ -4,7 +4,7 @@ import PokemonCard from './PokemonCard';
 
 export default class pokemonList extends Component {
   state = {
-    url: "https://pokeapi.co/api/v2/pokemon/?limit=40",
+    url: "https://pokeapi.co/api/v2/pokemon/?limit=3.",
     pokemon: null
   };
 

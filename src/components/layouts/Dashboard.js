@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import PokemonList from '../pokemon/PokemonList';
+import PokeDay from '../pokemon/PokeDay';
+import pokemonList from '../pokemon/PokemonList';
 
 export default class Dashboard extends Component {
   render() {
@@ -7,7 +8,7 @@ export default class Dashboard extends Component {
       <div>
         <div className="row">
           <div className="col">
-            <PokemonList />
+            <pokemonList />
           </div>
         </div>
       </div>
